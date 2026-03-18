@@ -1,121 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="portfolio-container">
+      {/* 1. The Navigation Bar */}
+      <nav className="menu-bar">
+        <span>Home</span>
+        <span>Projects</span>
+        <span>Contact</span>
+      </nav>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      {/* 2. The Interactive Landscape */}
+      <main className="landscape">
+        <div className="hero-text">
+          <h1>Solyane Berge</h1>
+          <p>Learning Scientist & Instructional Designer</p>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        {/* This is where we will put the Clouds and the Stick Figure */}
+      </main>
+    </div>
+  );
 }
 
-export default App
+const StickFigure = () => {
+  return (
+    <motion.div
+      drag
+      dragConstraints={{ left: 0, right: 1000, top: 0, bottom: 500 }} // Keeps him on screen
+      dragSnapToOrigin={true} // He jumps back to the grass if you drop him in the middle of nowhere
+      whileDrag={{ scale: 1.2, cursor: 'grabbing' }}
+      className="avatar"
+    >
+      <img src="src/assets/batch_StickFigure2.svg" alt="You!" />
+    </motion.div>
+  );
+};
+
+const handleDragEnd = (event, info) => {
+  // 1. Get the drop coordinates
+  const { x, y } = info.point;
+
+  // 2. Define your "AI Literacy" Cloud area (Controller Cloud) 
+  // You'll adjust these numbers based on where you place your cloud SVG
+  const cloudArea = { xMin: 200, xMax: 400, yMin: 100, yMax: 250 };
+
+  if (x > cloudArea.xMin && x < cloudArea.xMax && y > cloudArea.yMin && y < cloudArea.yMax) {
+    console.log("Navigating to AI4GA Project...");
+    // Trigger your achievement pop-up here!
+    navigate("/projects/ai4ga");
+  }
+};
+
+export default App;
