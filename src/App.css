@@ -235,6 +235,11 @@ html, body, #root {
   background-size: contain; /* This keeps the grass from stretching vertically */
 }
 
+.avatar img {
+  width: 60px;
+  height: auto;
+}
+
 .avatar {
   width: 60px;
   position: absolute;
@@ -242,6 +247,7 @@ html, body, #root {
   left: 50%;
   cursor: grab;
   z-index: 10;
+  transform: translateX(-50%);
 }
 
 .portal {
