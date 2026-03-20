@@ -10,6 +10,16 @@ html, body, #root {
   overflow: hidden; /* Prevents unwanted scrolling while dragging */
 }
 
+canvas {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+}
+
 .menu-bar {
   display: flex;
   justify-content: center;
@@ -223,6 +233,18 @@ html, body, #root {
   /* background: linear-gradient(to bottom, #87CEEB, #E0F7FA); */
 }
 
+.menu-bar, 
+.hero-text, 
+.portfolio-container {
+  /* Prevent blue highlight/text selection */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;      /* IE 10 and 11 */
+  user-select: none;          /* Standard syntax */
+  
+  /* Also prevent the "context menu" on mobile long-press if you want */
+  /* -webkit-touch-callout: none;  */
+}
+
 
 
 .landscape {
@@ -238,6 +260,8 @@ html, body, #root {
 .avatar img {
   width: 60px;
   height: auto;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 .avatar {
@@ -248,6 +272,7 @@ html, body, #root {
   cursor: grab;
   z-index: 10;
   transform: translateX(-50%);
+  touch-action: none;
 }
 
 .portal {
