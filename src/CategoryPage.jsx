@@ -1,41 +1,91 @@
-import { PROJECTS_DATA } from './projects';
+// CategoryPage.jsx
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { CATEGORIES_DATA } from './projects'; // Import your category config maps
 
-// inside CategoryPage.jsx
-const CategoryPage = () => {
+export default function CategoryPage({ projects }) {
   const { categoryId } = useParams();
-  const filteredProjects = PROJECTS_DATA.filter(p => p.category === categoryId);
+  const navigate = useNavigate();
+
+  // Safeguard lookup configuration data details
+  const categoryMeta = CATEGORIES_DATA[categoryId] || {
+    title: `${categoryId} Portfolio`,
+    description: "Exploring creative technologies, human interface design, and systems engineering architectures.",
+    heroImage: "/assets/images/default-hero.jpg"
+  };
+
+  // Filter master dataset to only pull projects corresponding to this portal track keys
+  const filteredProjectKeys = Object.keys(projects).filter(key => 
+    projects[key].category === categoryId
+  );
 
   return (
-    <div className="category-container">
-      <h1>{categoryId.charAt(0).toUpperCase() + categoryId.slice(1)} Portfolio</h1>
-      
-      <div className="project-list">
-        {filteredProjects.map((project) => (
-          <section key={project.id} className="project-card">
-            <h2>{project.title}</h2>
-            <div className="meta-badge-row">
-              <span className="badge-role">{project.role}</span>
-              {project.tools.map(tool => <span key={tool} className="badge-tool">{tool}</span>)}
-            </div>
+    <motion.div 
+      className="category-page-layout"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* Home Navigation Layer Action */}
+      <button className="floating-back-btn" onClick={() => navigate('/')}>
+        ← Back to Landscape
+      </button>
 
-            <p className="project-outcome"><strong>Impact:</strong> {project.outcome}</p>
+      {/* 1. Category Hero Cover Header Image with Title Overlay */}
+      <header 
+        className="category-hero-banner"
+        style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.9)), url(${categoryMeta.heroImage})` }}
+      >
+        <div className="hero-content-wrapper">
+          <span className="breadcrumb-tag">Portfolio Category</span>
+          <h1>{categoryMeta.title}</h1>
+        </div>
+      </header>
 
-            <div className="project-details-grid">
-              <div className="detail-item">
-                <h4>The "Why" (Pedagogy)</h4>
-                <p>{project.pedagogy}</p>
+      {/* 2. Category Opening Overview Description Paragraph */}
+      <section className="category-intro-summary">
+        <p className="category-description-text">{categoryMeta.description}</p>
+      </section>
+
+      {/* 3. Stacked Alternating Project Preview Rows */}
+      <section className="category-projects-list-container">
+        {filteredProjectKeys.map((key) => {
+          const project = projects[key];
+          
+          return (
+            <div 
+              key={key} 
+              className="category-project-row"
+              data-direction={project.cardImagePosition || "right"} // Dynamic layout inversion
+              onClick={() => navigate(`/project/${key}`)} // Direct link routing click modifier
+            >
+              {/* Text Meta Column Details */}
+              <div className="project-preview-text-column">
+                <span className="project-preview-index">View Case Study →</span>
+                <h2>{project.title}</h2>
+                <p>{project.quickPitch}</p>
+                
+                <div className="project-preview-tech-stack">
+                  {project.techStack?.map((tech, idx) => (
+                    <span key={idx} className="preview-tag">{tech}</span>
+                  ))}
+                </div>
               </div>
-              <div className="detail-item">
-                <h4>The "Testing" (Evaluation)</h4>
-                <p>{project.testing}</p>
+
+              {/* Image Preview Column Detail */}
+              <div className="project-preview-image-column">
+                <div className="preview-media-frame">
+                  <img src={project.cardImage} alt={`${project.title} Banner preview`} />
+                  <div className="hover-overlay-hint">
+                    <span>Explore Project</span>
+                  </div>
+                </div>
               </div>
-              {/* Add more sections for Proof and Collaboration here */}
             </div>
-          </section>
-        ))}
-      </div>
-    </div>
+          );
+        })}
+      </section>
+    </motion.div>
   );
-};
-
-export default CategoryPage;
+}

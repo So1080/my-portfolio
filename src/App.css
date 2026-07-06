@@ -1,3 +1,14 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Barrio&family=Caveat+Brush&family=Darumadrop+One&family=Kranky&family=Moirai+One&family=Press+Start+2P&family=Rubik+Iso&family=Slackey&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Barriecito&family=Barrio&family=Caveat+Brush&family=Darumadrop+One&family=Kranky&family=Moirai+One&family=Press+Start+2P&family=Rubik+Iso&family=Slackey&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Barriecito&family=Barrio&family=Caveat+Brush&family=Darumadrop+One&family=Kranky&family=Moirai+One&family=Patrick+Hand&family=Press+Start+2P&family=Rubik+Iso&family=Slackey&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Barriecito&family=Barrio&family=Caveat+Brush&family=Darumadrop+One&family=Kranky&family=Moirai+One&family=Patrick+Hand&family=Patrick+Hand+SC&family=Press+Start+2P&family=Rubik+Iso&family=Slackey&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +34,66 @@ canvas {
 .menu-bar {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 3vw;               /* Fluid spacing that adjusts with screen width */
+  padding: 1.2vw 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  
+  /* Soft overlay gradient that makes the white text easily readable against light clouds */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #ffffff;          /* White text pops elegantly over the blue sky skybox gradient */
+  
+  /* Using one of your premium imported fonts for an organic, human touch */
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 1.3vw;        /* Fluid typography scales smoothly across screens */
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  position: relative;
+  padding: 0.2vw 0.5vw;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Subtle, organic doodle underline effect on hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #000000; /* Subtle black charcoal line matches your illustration styling */
+  transform: translateX(-50%);
+  transition: width 0.25s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #000000;          /* Smoothly transitions to ink black on hover */
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::after {
+  width: 85%;              /* Expands the hand-drawn underline accent */
+}
+
+/* Perfect support for keyboard focus accessibility (Tab users) */
+.nav-link:focus-visible {
+  outline: 2px dashed #000000;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* .menu-bar {
+  display: flex;
+  justify-content: center;
   gap: 2rem;
   padding: 1rem;
   position: absolute;
@@ -31,11 +102,84 @@ canvas {
   z-index: 100;
 }
 
+.signpost-nav {
+  position: absolute;
+  top: 4%;
+  right: 4%; /* Pins it to the top-right corner to balance your top-left name
+  display: flex;
+  flex-direction: column; /* Stacks them like a real trail signpost
+  align-items: flex-end;
+  gap: 0.6vw;
+  z-index: 100;
+}
+
+.nav-sign {
+  background: #b5895a; /* Warm wood tone
+  color: #ffffff;
+  border: 2px solid #5c3a21; /* Dark wood-grain outline
+  border-radius: 4px;
+  padding: 0.4vw 1.2vw;
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 1.1vw; /* Scales cleanly with screen size
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  
+  /* Give them slightly imperfect, organic hand-carved angles 
+  transform: rotate(1deg);
+}
+
+/* Alternate rotations slightly so they look hand-placed on the trail 
+.nav-sign:nth-child(even) {
+  transform: rotate(-1.5deg);
+}
+.nav-sign:nth-child(3) {
+  transform: rotate(2deg);
+}
+
+/* Hover effects that feel interactive but subtle 
+.nav-sign:hover {
+  background: #a27546; /* Darker bark tone on hover 
+  transform: scale(1.05) translateY(-1px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-sign:active {
+  transform: scale(0.98);
+} */
+
 .hero-text {
   position: absolute;
-  top: 15%; /* Adjust as needed */
-  width: 100%;
-  text-align: center;
+  /* top: 2.5rem; */
+  /* left: 2.5rem; */
+  top: 4%;
+  left: 4%;
+  text-align: left;
+  max-width: 50vw;
+  z-index: 10;
+}
+
+.hero-text h1 {
+  /* font-size: 2.4rem; */
+  /*FONT EXAMPLES*/
+  /* font-family: 'Caveat Brush', cursive; */
+  /* font-family: 'Patrick Hand', sans-serif; */
+  /* font-family: 'Patrick Hand', cursive; */
+  font-family: 'Darumadrop One', sans-serif;
+  font-size: 5vw;
+  color: #000000; /* Sharp black matching the illustration style */
+  font-weight: 800;
+  margin-bottom: 0.2vw;
+  white-space: nowrap;
+}
+
+.hero-text p {
+  font-family: 'Patrick Hand', sans-serif; 
+  font-size: 3vw;
+  color: #222222; /* Deep charcoal for the descriptive subheader */
+  font-weight: 500;
+  line-height: 5vw;
 }
 
 .counter {
@@ -251,24 +395,30 @@ canvas {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url('src/assets/background1.svg');
-  background-position: bottom;
+  background-image: url('src/assets/background_v2.png'); /* Ensure this path is correct */
+  /* background-position: bottom;
   background-repeat: repeat-x;
-  background-size: contain; /* This keeps the grass from stretching vertically */
+  background-size: contain; */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  overflow: hidden;
 }
 
 .avatar img {
-  width: 60px;
+  width: 100%;
   height: auto;
   pointer-events: none;
   -webkit-user-drag: none;
 }
 
 .avatar {
-  width: 60px;
+  width: 5vw;
+  min-width: 40px; /* Optional: prevents it from getting microscopic on tiny phones */
+  max-width: 90px;
   position: absolute;
-  bottom: 100px;
-  left: 50%;
+  bottom: 6%;
+  left: 65%;
   cursor: grab;
   z-index: 10;
   transform: translateX(-50%);
@@ -277,8 +427,538 @@ canvas {
 
 .portal {
   position: absolute;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+}
+
+.portal-frame {
+  position: absolute;
+  width: 15vw; /* Adjust scale based on your preference */
+  cursor: pointer;
+  z-index: 2; /* Sits on top of the background */
+  transition: transform 0.2s ease-in-out;
+}
+
+.portal-frame:hover {
+  transform: scale(1.08) rotate(-1deg);
+  filter: drop-shadow(0px 12px 20px rgba(0, 0, 0, 0.2));
+}
+
+.portal-label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Safe System Font Stack: Crisp, modern, and highly legible across all screens */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  font-size: 1.1vw; /* Keeps the text scaling exactly alongside the asset frame proportions */
+  font-weight: 700;
+  text-transform: uppercase; /* Gives it a clean, deliberate look on the frame */
+  letter-spacing: 0.05em;
+  color: #3a3a3a; /*Dark charcoal color for clean contrast against the frame */
+  /* color: red; */
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 99;
+  display: block;
+}
+
+.portal:hover {
+  transform: translate(-50%, -50%) scale(1.08) !important; /* Preserves centered offset mapping while popping out */
+  filter: drop-shadow(0px 15px 25px rgba(0, 0, 0, 0.25)) drop-shadow(0px 0px 12px rgba(255, 255, 255, 0.6));
+}
+
+/* 2. Triggered when the stick figure body center enters the hitbox drop radius */
+.portal.avatar-hovering {
+  transform: translate(-50%, -50%) scale(1.1) !important;
+  /* Adds a warm green-gold organic glow ring indicating safe drop target validation paths */
+  /* filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.3)) drop-shadow(0px 0px 20px rgba(220, 160, 90, 0.7)); */
+  filter: drop-shadow(0px 20px 35px rgba(0, 0, 0, 0.35));
+}
+
+/* Make text transition scales feel seamless */
+.portal-label {
+  transition: color 0.2s ease;
+}
+.portal:hover .portal-label,
+.portal.avatar-hovering .portal-label {
+  color: #000000; /* Darkens ink to show focus clarity */
+}
+
+.speech-bubble {
+  position: absolute;
+  bottom: 85%;       /* Adjust this to move it higher or lower */
+  right: 105%;       /* Adjust this to shift it left or right */
+  width: 20vw;      /* Match the width scale of your drawing */
+  height: auto;
+  pointer-events: none; 
+  z-index: 25;
+}
+
+/* Ensure your artwork behaves and scales dynamically */
+.bubble-graphic {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Position your text squarely over the center of your drawing */
+.bubble-text {
+  position: absolute;
+  top: 45%;          /* Tweak these percentages to center text perfectly */
+  left: 50%;         /* within your hand-drawn bubble's empty space */
+  transform: translate(-50%, -50%);
+  width: 80%;        /* Keeps text safely away from your drawn borders */
+  
+  color: #000000;
+  font-family: system-ui, sans-serif;
+  font-size: 1.2vw;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+}
+
+
+.intro-gate-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fcfaf2; /* Soft watercolor canvas paper tone */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Keeps it strictly above menus and layouts */
+}
+
+.intro-content {
+  text-align: center;
+}
+
+.intro-title {
+  font-family: 'Caveat Brush', cursive;
+  font-size: 5vw; /* Bold, high-impact presence */
+  color: #000000;
+  margin-bottom: 0.5vw;
+}
+
+.intro-subtitle {
+  font-family: 'Patrick Hand', sans-serif;
+  font-size: 1.8vw;
+  color: #444444;
+  margin-bottom: 3vw;
+}
+
+.start-button {
+  background: #000000;
+  color: #fcfaf2;
+  border: none;
+  border-radius: 30px;
+  padding: 1vw 2.5vw;
+  font-family: 'Patrick Hand', sans-serif;
+  font-size: 1.4vw;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  outline: none;
+}
+
+
+
+
+/* App.css additions for clean Project Case Studies */
+
+.project-page-layout {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1a1a1a; /* Dark presentation background matching image3.jpg.webp */
+  color: #f5f5f5;
+  overflow-y: auto; /* Allows portfolio body reading scroll */
+  padding-bottom: 5rem;
+}
+
+.floating-back-btn {
+  position: fixed;
+  top: 5rem;
+  left: 2rem;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.floating-back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-3px);
+}
+
+/* 1. Hero Cover Header Image */
+.project-hero-banner {
+  width: 100%;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.hero-content-wrapper {
+  max-width: 900px;
+}
+
+.project-category-tag {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  color: #00fa9a; /* Highlights categories bright */
+  font-weight: 700;
+}
+
+.hero-content-wrapper h1 {
+  font-size: 3.5rem;
+  margin: 1rem 0;
+  font-weight: 800;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.project-metadata-row {
+  font-size: 1.1rem;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* 2. Opening Overview Paragraph */
+.project-intro-summary {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.pitch-text {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  font-style: italic;
+  border-left: 4px solid #00fa9a;
+  padding-left: 1.5rem;
+}
+
+/* 3. Alternating Split Columns Layout */
+.project-split-sections-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
+  gap: 6rem; /* Vertical breathing room between steps */
+}
+
+.split-section-row {
+  display: flex;
   align-items: center;
-  z-index: 5;
+  gap: 4rem;
+  width: 100%;
+}
+
+/* Dynamic Reorientation matching your position specifications */
+.split-section-row[data-direction="right"] {
+  flex-direction: row; /* Text on left, image on right */
+}
+
+.split-section-row[data-direction="left"] {
+  flex-direction: row-reverse; /* Image on left, text on right */
+}
+
+.text-column {
+  flex: 1;
+}
+
+.text-column h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.text-column p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #b3b3b3;
+}
+
+.image-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.media-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.media-container:hover {
+  transform: scale(1.02);
+}
+
+.media-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive Handling for Mobile Viewports */
+@media (max-width: 768px) {
+  .split-section-row,
+  .split-section-row[data-direction="left"] {
+    flex-direction: column !important; /* Stack columns vertically on small mobile screens */
+    gap: 2rem;
+  }
+  
+  .hero-content-wrapper h1 {
+    font-size: 2.2rem;
+  }
+  
+  .project-metadata-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* App.css additions for clean Category Views styling layouts */
+
+.category-page-layout {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #141414; /* Deep neutral color space matching the dark tone */
+  color: #fafafa;
+  overflow-y: auto;
+  padding-bottom: 6rem;
+}
+
+/* 1. Category Hero Layout */
+.category-hero-banner {
+  width: 100%;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.breadcrumb-tag {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  color: #00fa9a;
+  font-weight: 600;
+}
+
+.category-hero-banner h1 {
+  font-size: 3.8rem;
+  margin-top: 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* 2. Intro Area Description Styling */
+.category-intro-summary {
+  max-width: 850px;
+  margin: 4.5rem auto 5rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.category-description-text {
+  font-size: 1.35rem;
+  line-height: 1.65;
+  color: #cccccc;
+}
+
+/* 3. Alternating Interactive Click Rows CSS */
+.category-projects-list-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7rem; /* Vertical spacing distance separating list layout elements */
+}
+
+.category-project-row {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  width: 100%;
+  cursor: pointer; /* Signal clickable area action block */
+  transition: opacity 0.3s ease;
+}
+
+/* Data orientation configurations matrix sorting toggles */
+.category-project-row[data-direction="right"] {
+  flex-direction: row;
+}
+
+.category-project-row[data-direction="left"] {
+  flex-direction: row-reverse;
+}
+
+.project-preview-text-column {
+  flex: 1.1;
+}
+
+.project-preview-index {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #FF69B4; /* Distinct visual indicator to prompt a click interaction */
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.project-preview-text-column h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+/* Hovering highlighting adjustments text effects feedback loops */
+.category-project-row:hover .project-preview-text-column h2 {
+  color: #00fa9a; /* Color focus accent shifts on row container hover */
+}
+
+.project-preview-text-column p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #a6a6a6;
+  margin-bottom: 1.5rem;
+}
+
+/* Tech tag listing clusters containers layouts */
+.project-preview-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.preview-tag {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #dcdcdc;
+  font-family: monospace;
+}
+
+.project-preview-image-column {
+  flex: 0.9;
+  display: flex;
+  justify-content: center;
+}
+
+/* Media layout frames configurations effects */
+.preview-media-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.preview-media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Zoom scale actions transitions on general grid wrapper mouse active detection */
+.category-project-row:hover .preview-media-frame img {
+  transform: scale(1.05);
+}
+
+/* Dark tracking visual hint overlay rules masking layers graphics configuration */
+.hover-overlay-hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 250, 154, 0.15); /* Tint color tracks accent hue matching highlights */
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.hover-overlay-hint span {
+  background: #ffffff;
+  color: #111111;
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+.category-project-row:hover .hover-overlay-hint {
+  opacity: 1;
+}
+
+.category-project-row:hover .hover-overlay-hint span {
+  transform: translateY(0);
+}
+
+/* Responsive Structural Stack Modifier Constraints Breakpoints overrides */
+@media (max-width: 768px) {
+  .category-project-row,
+  .category-project-row[data-direction="left"] {
+    flex-direction: column !important;
+    gap: 1.5rem;
+  }
+  
+  .category-hero-banner h1 {
+    font-size: 2.5rem;
+  }
+  
+  .category-project-row {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
 }
