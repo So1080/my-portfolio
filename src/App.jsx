@@ -213,7 +213,7 @@ const IntroGate = ({ onStart }) => {
   const nameStr = "Solyane Berge";
   const [showStickFigure, setShowStickFigure] = useState(false);
   
-  // Track the actual title container dimensions in real-time
+  // Track the actual title container dimensions in real-time for perfect responsive alignment
   const titleRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 440, height: 60 });
 
@@ -241,17 +241,14 @@ const IntroGate = ({ onStart }) => {
   // Spatial boundaries relative to layout center
   const startTextX = -(dimensions.width / 2);
   const endTextX = dimensions.width / 2;
-  
-  // Position the baseline underneath the font container instead of through the middle
   const UNDERLINE_Y = dimensions.height / 2; 
 
-  // Dynamic target landing coordinates
+  // Dynamic target landing coordinates for your character asset
   const FINAL_X = endTextX + 40; 
   const FINAL_Y = UNDERLINE_Y + dimensions.height * 1.2; 
-
-  // Scale the stick figure dynamically based on the font container height
   const responsiveCharacterWidth = `${dimensions.height * 0.75}px`;
 
+  // Generates the smooth mathematical dot movement track
   const generateGamePath = () => {
     const pointsX = [];
     const pointsY = [];
@@ -261,10 +258,9 @@ const IntroGate = ({ onStart }) => {
       const t = i / totalSteps;
 
       if (t < 0.45) {
-        // PHASE 1: Bounces from off-screen left toward the start of your name
+        // Phase 1: Playful introductory bounces
         const bounceProgress = t / 0.45;
         const startX = -window.innerWidth / 2; 
-        
         pointsX.push(startX + (startTextX - startX) * bounceProgress);
 
         const bounceArc = Math.abs(Math.sin(bounceProgress * Math.PI * 3));
@@ -272,21 +268,18 @@ const IntroGate = ({ onStart }) => {
         pointsY.push(UNDERLINE_Y - bounceArc * 140 * heightFade);
 
       } else if (t >= 0.45 && t <= 0.85) {
-        // PHASE 2: Linear crawl running cleanly UNDERNEATH your name
+        // Phase 2: Drawing underline beneath your name
         const textProgress = (t - 0.45) / 0.40; 
-        
         pointsX.push(startTextX + (endTextX - startTextX) * textProgress);
         pointsY.push(UNDERLINE_Y); 
 
       } else {
-        // PHASE 3: Small jump extending past the end of the text, dropping down lower
+        // Phase 3: Final leap right into character transformation
         const dropProgress = (t - 0.85) / 0.15; 
-        
         pointsX.push(endTextX + (FINAL_X - endTextX) * dropProgress);
 
         const jumpArc = Math.sin(dropProgress * Math.PI); 
         const gravityFall = Math.pow(dropProgress, 2);    
-        
         pointsY.push(UNDERLINE_Y - (jumpArc * 25) + (gravityFall * (FINAL_Y - UNDERLINE_Y)));
       }
     }
@@ -301,13 +294,10 @@ const IntroGate = ({ onStart }) => {
       exit={{ y: '-100vh', opacity: 0 }}
       transition={{ duration: 1.1, ease: [0.76, 0, 0.24, 1] }}
     >
-      <MouseParticles />
-
       <div className="intro-content">
-        
         <div style={{ position: 'relative', display: 'inline-block' }}>
           
-          {/* THE GAME ANIMATION INK DOT / STICK FIGURE */}
+          {/* THE KINETIC DOT / CHARACTER AVATAR */}
           <AnimatePresence mode="wait">
             {!showStickFigure ? (
               <motion.div 
@@ -321,40 +311,30 @@ const IntroGate = ({ onStart }) => {
                 onAnimationComplete={() => setShowStickFigure(true)}
               />
             ) : (
-              /* THE TRANSFORMED STICK FIGURE */
               <motion.div
                 key="stick-character"
-                // Using x and y directly within Framer Motion style properties 
-                // forces it to map onto the exact same grid alignment system as the dot[cite: 2]
                 initial={{ opacity: 0, scale: 0.4 }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: [0.5, 1.1, 1],
-                }}
-                transition={{ 
-                  duration: 0.35,
-                  ease: "easeOut"
-                }}
+                animate={{ opacity: 1, scale: [0.5, 1.1, 1] }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
                 style={{
                   position: 'absolute',
                   width: responsiveCharacterWidth, 
                   height: 'auto',
                   top: '50%',
                   left: '50%',
-                  // Centering coordinates exactly on the computed variables
                   x: FINAL_X,
                   y: FINAL_Y,
-                  // Shifts layout anchor perfectly to the character's feet[cite: 1]
-                  transform: 'translate(-50%, -85%)', 
+                  transform: 'translate(-50%, -85%)',
                   zIndex: 20
                 }}
               >
-                <img src={stickFigureSvg} alt="Transformed Character Avatar" style={{ width: '100%' }} />
+                {/* Your custom stick figure layout vector asset */}
+                <img src={stickFigureSvg} alt="Character Avatar" style={{ width: '100%' }} />
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* MEASURED TITLE CONTAINER */}
+          {/* CRAWLING HANDWRITTEN TITLE EXPOSURE */}
           <h1 ref={titleRef} className="intro-title" aria-label={nameStr}>
             {nameStr.split("").map((letter, index) => (
               <motion.span
@@ -386,7 +366,7 @@ const IntroGate = ({ onStart }) => {
           UX Researcher & Learning Scientist
         </motion.p>
         
-        {/* PLAYFUL BUTTON */}
+        {/* INTERACTIVE NAVIGATION ACTION */}
         <motion.button 
           className="start-button"
           onClick={onStart}
