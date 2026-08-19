@@ -135,15 +135,17 @@ export default function CategoryPage({ projects }) {
                   {project.title}
                 </h2>
 
-                <p style={{ 
+                <div style={{ 
                   fontSize: '1.1rem', 
                   lineHeight: '1.5', 
                   color: '#333333', 
                   margin: '0 0 1.5rem 0',
                   fontFamily: 'system-ui, -apple-system, "Inter", sans-serif'
-                }}>
-                  {project.quickPitch}
-                </p>
+                }}
+                dangerouslySetInnerHTML={{ __html: project.quickPitch }}
+                />
+                  {/* {project.quickPitch}
+                </p> */}
                 
                 {/* Tech Stack Tags */}
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>

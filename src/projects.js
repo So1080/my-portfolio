@@ -94,13 +94,13 @@ export const PROJECTS_DATA = {
       {
         title: "The Inclusive Vision",
         text: "Braille BARRS is an interactive 3D orientation map paired with a responsive hardware sonification device. The base map features physical pathways winding through the museum layout, interrupted by dedicated slots where children can insert distinct 3D-printed elements. Designed as a collaborative tool, it allows BVI children-either independently or alongside sighted peers and educators-to complete the physical map as a puzzle, listening to custom spatial descriptions and audio cues to safely internalize the layout of a real-world environment before stepping foot into it.",
-        // image: "/assets/images/barrs-vision.jpg",
+        image: "/projects_images/Braille_BARRS/braille_render.png",
         imagePosition: "left"
       },
       {
         title: "Co-Design Methodology",
         text: "To build an authentic orientation tool, we executed a rigorous series of user interviews and usability testing sessions exclusively with BVI individuals. The core insight gained was that interview design is vital; structuring sessions around highly tactile, puzzle-like activities rather than abstract verbal questions drastically shifted the depth of the feedback we received, directly shaping the mechanical tolerances and auditory pacing of the final device.",
-        // image: "/assets/images/barrs-codesign.jpg",
+        image: "/projects_images/Braille_BARRS/braille_sketch.png",
         imagePosition: "right"
       },
       {
@@ -117,7 +117,7 @@ export const PROJECTS_DATA = {
       },
       {
         title: "Impact & Recognition",
-        text: "Braille BARRS was awarded Best Project of the Semester at Georgia Tech. The research, methodologies, and deployment results were compiled into a peer-reviewed scientific paper and presented as an interactive poster session at the ACM SUI (Spatial User Interaction) conference in Montreal.",
+        text: `Braille BARRS was awarded Best Project of the Semester at Georgia Tech. The research, methodologies, and deployment results were compiled into a peer-reviewed scientific paper and presented as an interactive poster session at the <a href="https://dl.acm.org/doi/10.1145/3694907.3765955" target="_blank" rel="noopener noreferrer" style="color: #1A1A1A; text-decoration: underline; font-weight: bold;">ACM SUI conference in Montreal</a> in 2025.`,
         // image: "/assets/images/barrs-impact.jpg",
         imagePosition: "left"
       }
@@ -130,7 +130,8 @@ export const PROJECTS_DATA = {
     role: "Lead Game Designer and Developer",
     techStack: ["Unity", "C#", "Blender", "Git"],
     heroImage: "/projects_images/where_is_my_people/where_poster.png",
-    quickPitch: "A narrative-driven educational video game designed for middle and high school students that unmasks the hidden complexities of artificial intelligence, data pipelines, and systemic bias.",
+    // quickPitch: "A narrative-driven educational video game designed for middle and high school students that unmasks the hidden complexities of artificial intelligence, data pipelines, and systemic bias.",
+    quickPitch: `Where Are My People? is an educational video game that teaches middle school students computer vision concepts through interactive gameplay. Check out our <a href="https://playandlearnlab.itch.io/where-are-my-people" target="_blank" rel="noopener noreferrer" style="color: #1A1A1A; text-decoration: underline; font-weight: bold;"> itch.io link</a> or our <a href="https://www.playandlearnlab.com" target="_blank" rel="noopener noreferrer" style="color: #1A1A1A; text-decoration: underline; font-weight: bold;"> lab's website</a> for more details on our research.`,
     
     sections: [
       {
@@ -177,8 +178,8 @@ export const PROJECTS_DATA = {
     role: "Secondary Stage Lead Designer and Developer",
     techStack: ["Unity", "C#", "Git"],
     heroImage: "/projects_images/SquareUp/square_poster.png",
-    quickPitch: "An educational coffee shop business-simulation game that demystifies neural networks, computer vision, and NLP data parsing structures for K-12 students.",
-    
+    quickPitch: `An educational coffee shop business-simulation game that demystifies neural networks, computer vision, and NLP data parsing structures for K-12 students. Check out our <a href="https://playandlearnlab.itch.io/square-up" target="_blank" rel="noopener noreferrer" style="color: #1A1A1A; text-decoration: underline; font-weight: bold;"> itch.io link</a> or our <a href="https://www.playandlearnlab.com" target="_blank" rel="noopener noreferrer" style="color: #1A1A1A; text-decoration: underline; font-weight: bold;"> lab's website</a> for more details on our research.`,
+
     sections: [
       {
         title: "The Learning Problem",
@@ -218,7 +219,7 @@ export const PROJECTS_DATA = {
     category: "games",
     role: "Lead Systems and Gameplay Programmer",
     techStack: ["Unity", "C#", "Blender", "Git"],
-    heroImage: "/assets/images/glacou-hero.jpg",
+    heroImage: "/projects_images/Glacou/glacou_livre.png",
     quickPitch: "A client-driven educational game and physical companion guidebook designed to build environmental consciousness and visual empathy in elementary school students.",
     
     sections: [
@@ -231,7 +232,11 @@ export const PROJECTS_DATA = {
       {
         title: "Core Gameplay Mechanics",
         text: "The gameplay relies heavily on a series of rapid mini-games incorporating randomized events to sustain high emotional engagement. We utilized classic, accessible frameworks-including point-and-click navigation, digital memory matching, mazes, and hide-and-seek mechanics. Rather than text-based warnings, feedback is delivered through clear, artistic changes in the ice cube's facial expressions and physical state, teaching cause-and-effect through visual empathy.",
-        // image: "/assets/images/glacou-mechanics.jpg",
+        images: [
+          "/projects_images/Glacou/glacou1.png",
+          "/projects_images/Glacou/glacou2.png"
+        ],
+        layout: "vertical",
         imagePosition: "left"
       },
       {
@@ -249,7 +254,7 @@ export const PROJECTS_DATA = {
       {
         title: "Current Status & Key Takeaway",
         text: "The project is ongoing, passing sequentially to a new 5-person student cohort each semester to iterate and expand the codebase. This experience cemented my belief that a learning designer cannot effectively build tools in a vacuum. When your target persona is far removed from your own lived experience, continuous, iterative stakeholder feedback is absolutely mandatory to validate design assumptions.",
-        // image: "/assets/images/glacou-status.jpg",
+        image: "/projects_images/Glacou/glacou_planete_icon.png",
         imagePosition: "right"
       }
     ]
@@ -260,26 +265,34 @@ export const PROJECTS_DATA = {
     category: "games",
     role: "Core Systems Developer",
     techStack: ["Java"],
-    heroImage: "/assets/images/magnus-hero.jpg",
+    heroImage: "/projects_images/MagnusAtomus/magnus_homescreen.png",
     quickPitch: "A native Java desktop puzzle game that transforms the periodic table of elements into a vibrant creature-collection and physics-based mechanics pipeline.",
     
     sections: [
       {
         title: "The Learning Problem",
         text: "The periodic table is frequently taught through rote memorization, causing students to lose sight of why an element's atomic structure or reactivity matters. The challenge lay in ensuring knowledge transfer: converting abstract chemical data sheets into interactive assets without losing the underlying scientific meaning.",
-        // image: "/assets/images/magnus-problem.jpg",
+        images: [
+          "/projects_images/MagnusAtomus/magnus_lowfi1.png",
+          "/projects_images/MagnusAtomus/magnus_lowfi2.png"
+        ],
+        layout: "vertical",
         imagePosition: "right"
       },
       {
         title: "Core Gameplay Mechanics",
         text: "Elements are represented as interactive physical orbs that players slot into environmental mechanisms on screen. The puzzle solutions are direct expressions of chemical properties: slotting a hydrogen and oxygen pairing might fill a vessel with water to weigh down a pressure plate, while leveraging a highly reactive element might trigger a controlled blast to break through a barrier, mapping scientific principles directly to game progression.",
-        // image: "/assets/images/magnus-mechanics.jpg",
+        images: [
+          "/projects_images/MagnusAtomus/magnus1.png",
+          "/projects_images/MagnusAtomus/magnus2.png"
+        ],
+        layout: "vertical",
         imagePosition: "left"
       },
       {
         title: "Technical Architecture",
         text: "Built from scratch in native Java without an external commercial game engine, requiring us to construct our own modular Ul rendering layer and basic discrete collision detection systems. My puzzle architecture utilized an abstract, object-oriented component system where element objects dynamically passed their chemical property arrays to environmental trigger scripts, calculating reactions systematically based on the inserted element's data.",
-        // image: "/assets/images/magnus-tech.jpg",
+        image: "/projects_images/MagnusAtomus/magnus_diagramme_classes.png",
         imagePosition: "right"
       },
       {
@@ -291,7 +304,7 @@ export const PROJECTS_DATA = {
       {
         title: "Current Status & Key Takeaway",
         text: "Completed as a targeted, single-semester classroom project; the game remains an un-deployed educational prototype evaluated extensively for its technical execution and design framework. The project underscored the delicate balance of abstraction in educational games: if a mechanic becomes too detached from reality, the core learning objective is lost, making it the designer's job to keep gameplay loops tethered to real-world concepts.",
-        // image: "/assets/images/magnus-status.jpg",
+        image: "/projects_images/MagnusAtomus/magnus1bis.png",
         imagePosition: "right"
       }
     ]
@@ -302,8 +315,8 @@ export const PROJECTS_DATA = {
     category: "games",
     role: "Research Assistant, Lead Game Designer, and Developer",
     techStack: ["Unity", "C#", "Blender", "Git"],
-    heroImage: "/assets/images/pllab-hero.jpg",
-    quickPitch: "A multi-year research umbrella portfolio driving the co-design, telemetry catching, and empirical evaluation of educational web games with K-12 youth.",
+    heroImage: "/projects_images/playandlearn.jpeg",
+    quickPitch: `A multi-year research portfolio driving the co-design of educational web games with K-12 youth. Check out our <a href="https://www.playandlearnlab.com" target="_blank" rel="noopener noreferrer" style="color: #1A1A1A; text-decoration: underline; font-weight: bold;"> lab's website</a> for more details on our research and our <a href="https://playandlearnlab.itch.io" target="_blank" rel="noopener noreferrer" style="color: #1A1A1A; text-decoration: underline; font-weight: bold;">itch.io page</a> to play our games!`,
     
     sections: [
       {
@@ -327,12 +340,12 @@ export const PROJECTS_DATA = {
       {
         title: "Playtesting & Iteration",
         text: "Our methodology follows a strict seasonal cycle. In the autumn, we host structured workshops teaching high schoolers core technical concepts, collaborating closely to map out game ideas. During the winter and spring, I translate these concepts into clean code, subjecting the games to multi-tiered evaluation sessions with teachers, university students, and K-12 target users to refine usability before deployment.",
-        // image: "/assets/images/pllab-testing.jpg",
+        image: "/projects_images/BridgeUp1.jpeg",
         imagePosition: "left"
       },
       {
         title: "Current Status & Key Takeaway",
-        text: "The lab's portal currently hosts 5 fully deployed, operational games, with an additional 4 currently in active development. This extended experience completely reshaped my engineering and design habits. It taught me that when building for education, the learning objective must remain the absolute center of gravity; it is incredibly easy to get swept away by a fun mechanic and inadvertently compromise your educational goals.",
+        text: "The lab's portal currently hosts 5 fully deployed, operational games, with an additional 4 currently in active development available to play here: <a href=\"https://playandlearnlab.itch.io\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #1A1A1A; text-decoration: underline; font-weight: bold;\">itch.io</a>. This extended experience completely reshaped my engineering and design habits. It taught me that when building for education, the learning objective must remain the absolute center of gravity; it is incredibly easy to get swept away by a fun mechanic and inadvertently compromise your educational goals.",
         // image: "/assets/images/pllab-status.jpg",
         imagePosition: "right"
       }
@@ -344,44 +357,53 @@ export const PROJECTS_DATA = {
     category: "uxui",
     role: "UX Engineering Intern",
     techStack: ["Figma", "Octalysis Framework", "JTBD Framework"],
-    heroImage: "/assets/images/digischool-hero.jpg",
-    quickPitch: "Planning and executing a multi-platform gamification strategy across web and mobile ecosystems to boost user retention by 10% through behavioral design.",
+    heroImage: "/projects_images/digischool/digischool_tanuki_course.png",
+    quickPitch: "Planning and executing a multi-platform gamification strategy across web and mobile ecosystems to boost user retention through behavioral design.",
     
     sections: [
       {
         title: "Project Overview & Objective",
         text: "During an intensive 6-month UX engineering internship, I was tasked with planning and executing a comprehensive gamification framework across digiSchool's flagship web platforms and mobile applications. The platform served a massive, highly diverse user base spanning middle schoolers to adult learners across numerous academic disciplines. The primary business and design challenge was boosting low user retention by leveraging behavioral design to turn self-paced learning into an engaging habit.",
-        // image: "/assets/images/digischool-overview.jpg",
+        
         imagePosition: "right"
       },
       {
         title: "UX Research & User Personas",
         text: "I initiated the project by conducting extensive user interviews across our core demographic segments. To map out journeys and uncover structural pain points, I utilized the Jobs-to-Be-Done (JTBD) framework, paired with a comprehensive competitive benchmark analysis structured around the Yu-kai Chou Octalysis Gamification Framework. Crucially, I ran internal alignment workshops across every corporate department-including UI designers, curriculum authors, product managers, and marketing executives-to balance user desires with business goals.",
-        // image: "/assets/images/digischool-research.jpg",
+        images: [
+          "/projects_images/digischool/Digischool_Octalysis.png",
+          "/projects_images/digischool/Kartable_Octalysis.png"
+        ],
+        layout: "vertical",
         imagePosition: "left"
       },
       {
         title: "Information Architecture & Wireframes",
         text: "Navigating a complex, pre-existing product ecosystem meant that radical, sweeping restructures were technically impossible due to a massive engineering backlog. I focused on mapping out a pragmatic, phased implementation roadmap. Working directly with the engineering team, I broke down the broad gamification strategy into lean, high-impact 'quick wins' that could be seamlessly woven into the existing layout without disrupting operational stability.",
-        // image: "/assets/images/digischool-architecture.jpg",
+        images: [
+          "/projects_images/digischool/digi3.png",
+          "/projects_images/digischool/digi2.png",
+          "/projects_images/digischool/digi1.png"
+        ],
+        layout: "vertical",
         imagePosition: "right"
       },
       {
         title: "Key Interface Features",
-        text: "• Gamified Mascot Integration: Introduced a central, reactive platform companion to provide immediate feedback and emotional support during difficult study modules, increasing visual continuity across separate apps.\n• Playful Quiz Restructuring: Re-engineered standard, dry multiple-choice assessments into dynamic, low-stakes mini-games, reducing test anxiety while protecting the core educational validation data.\n• Social Connection Hub: Designed personalized user profiles and lightweight peer connection systems to foster an organic sense of community and accountability directly within the platform.",
-        // image: "/assets/images/digischool-features.jpg",
+        text: "• Gamified Mascot Integration: Introduced a central, reactive platform companion to provide immediate feedback and emotional support during difficult study modules, increasing visual continuity across separate apps. (Special thank you to Karl-Elliott Jouffroy (graphic designer) for all the illustrations)\n• Playful Quiz Restructuring: Re-engineered standard, dry multiple-choice assessments into dynamic, low-stakes mini-games, reducing test anxiety while protecting the core educational validation data.\n• Social Connection Hub: Designed personalized user profiles and lightweight peer connection systems to foster an organic sense of community and accountability directly within the platform.",
+        image: "/projects_images/digischool/digischool_tanuki_medaille (1).png",
         imagePosition: "left"
       },
-      {
-        title: "The Proof (Data-Driven Results)",
-        text: "The strategic, phased integration of these core gamification features successfully drove a 10% boost in user retention across our primary web and mobile platforms.",
-        // image: "/assets/images/digischool-proof.jpg",
-        imagePosition: "right"
-      },
+      // {
+      //   title: "The Proof (Data-Driven Results)",
+      //   text: "The strategic, phased integration of these core gamification features successfully drove a 10% boost in user retention across our primary web and mobile platforms.",
+      //   // image: "/assets/images/digischool-proof.jpg",
+      //   imagePosition: "right"
+      // },
       {
         title: "Reflections",
         text: "This project provided an invaluable lesson in corporate product management. As a UX professional, success isn't just about designing a clean layout; it's about clear communication. Navigating competing corporate priorities and a development team focused on bug fixing taught me how to present data persuasively, demonstrating how small Ul adjustments could yield tangible user engagement and business value.",
-        // image: "/assets/images/digischool-reflections.jpg",
+        // image: "/projects_images/digischool/digischool_tanuki_course.png",
         imagePosition: "left"
       }
     ]
@@ -392,7 +414,7 @@ export const PROJECTS_DATA = {
     category: "uxui",
     role: "HCI Designer & Prototyper",
     techStack: ["Figma"],
-    heroImage: "/assets/images/creatinder-hero.jpg",
+    heroImage: "/projects_images/creaTinder/logo.png",
     quickPitch: "An artifact-first mobile networking prototype engineered to spark cross-department campus creative collaborations while lowering outreach anxiety.",
     
     sections: [
@@ -405,25 +427,34 @@ export const PROJECTS_DATA = {
       {
         title: "UX Research & User Personas",
         text: "We began with user interviews inside the university's creative communities to identify collaboration bottlenecks. Using affinity mapping, we grouped qualitative insights, revealing that students felt intimidated by cold outreach and lacked visibility into what peers were making. We built low-fidelity paper prototypes to map user journeys, validated them through rapid testing, and then advanced to high-fidelity design to study how visual layouts affected perceived trust and platform utility.",
-        // image: "/assets/images/creatinder-research.jpg",
+        image: "/projects_images/creaTinder/affinityMappingInterviews.png",
         imagePosition: "left"
       },
       {
         title: "Information Architecture & Wireframes",
-        text: "Moving from low-fi sketches to a fully dynamic prototype required multiple testing cycles. We focused heavily on the user profile flow, ensuring the setup process was friction-free while gathering enough project data to drive meaningful connections. Every step was iterated in Figma, allowing us to test micro-interactions and transitions in a highly realistic mobile frame.",
-        // image: "/assets/images/creatinder-architecture.jpg",
+        text: "Moving from low-fi sketches to a fully dynamic prototype required multiple testing cycles. We focused heavily on the user profile flow, ensuring the setup process was friction-free while gathering enough project data to drive meaningful connections. Every step was iterated in Figma, allowing us to test micro-interactions and transitions in a highly realistic mobile frame. Figma link: <a href='https://www.figma.com/design/dOvLfFSNWbNe8VHSW6EAVe/CreaTinder?node-id=3203-1581&t=tEm3ukKm0mlRiudO-1' target='_blank' rel='noopener noreferrer' style='color: #1A1A1A; text-decoration: underline; font-weight: bold;'>CreaTinder Prototype</a>",
+        image: "/projects_images/creaTinder/lowfi_prototype.png",
         imagePosition: "right"
       },
       {
         title: "Key Interface Features",
         text: "• Artifact-First Swiping: The main discovery feed showcases a large, central visual asset of a user's creation, shifting focus away from personal photos to lower social anxiety and prioritize creative merit.\n• Centralized Campus Event Hub: A unified dashboard displaying active artistic pop-ups, gallery open-calls, and jam sessions, allowing students to RSVP and find events in a single spot rather than tracking scattered social accounts.",
-        // image: "/assets/images/creatinder-features.jpg",
+        images: [
+          "/projects_images/creaTinder/profile1.png",
+          "/projects_images/creaTinder/profile2.png"
+        ],
+        layout: "horizontal",
         imagePosition: "left"
       },
       {
         title: "The Proof (Data-Driven Results)",
         text: "High-fidelity user testing validated that our artifact-first layout significantly reduced outreach anxiety compared to traditional social networks. Users reported a much higher willingness to message strangers when the conversation was anchored directly to a shared piece of art or project.",
-        // image: "/assets/images/creatinder-proof.jpg",
+        images: [
+          "/projects_images/creaTinder/getinspo_page.png",
+          "/projects_images/creaTinder/chat_page.png",
+          "/projects_images/creaTinder/my_gallery_page.png"
+        ],
+        layout: "horizontal",
         imagePosition: "right"
       },
       {
@@ -440,14 +471,14 @@ export const PROJECTS_DATA = {
     category: "uxui",
     role: "Mobile/Telemetry Developer & Interaction Designer",
     techStack: ["Android Studio", "Java", "Python", "Google Maps API"],
-    heroImage: "/assets/images/myjourney-hero.jpg",
+    heroImage: "/projects_images/MyJourneyAtTech/style12.png",
     quickPitch: "A mobile application parsing passive geographic telemetry to systematically transform daily college commutes into striking, abstract generative artwork.",
     
     sections: [
       {
         title: "Project Overview & Objective",
         text: "Built during a Mobile and Ubiquitous Computing class, this project explores emotional design on mobile devices. The app challenges the standard paradigm of higher education-which prioritizes the final diploma over the personal growth achieved along the way-by gathering passive geographic telemetry to transform a student's daily campus travels into striking, personalized abstract digital art.",
-        // image: "/assets/images/myjourney-overview.jpg",
+        image: "/projects_images/MyJourneyAtTech/finalUI.png",
         imagePosition: "right"
       },
       {
@@ -459,13 +490,17 @@ export const PROJECTS_DATA = {
       {
         title: "Information Architecture & Wireframes",
         text: "The technical prototype was built natively using Android Studio, pulling real-time location data via the Google Maps API from a group of student testing volunteers. This raw coordinate data was then processed through custom Python script libraries to convert location streams into abstract geometric art forms. We mapped out the interface from rough concepts to a fully operational mobile application, utilizing intermediate testing phases to ensure smooth data logging and a clear user flow.",
-        // image: "/assets/images/myjourney-architecture.jpg",
+        images: [
+          "/projects_images/MyJourneyAtTech/permissions.png",
+          "/projects_images/MyJourneyAtTech/iteration1.png"
+        ],
+        layout: "horizontal",
         imagePosition: "right"
       },
       {
         title: "Key Interface Features",
         text: "• Real-Time Generative Dashboard: A live interface screen where students view their geographic foot-traffic over a day, week, month, or year, selecting different aesthetic rendering styles to transform their data into art.\n• Community Canvas Templates (Design Concept): A planned feature allowing users to customize the underlying mathematical formulas of their art and share these templates with the community, turning individual paths into a shared visual language.",
-        // image: "/assets/images/myjourney-features.jpg",
+        image: "/projects_images/MyJourneyAtTech/style3.png",
         imagePosition: "left"
       },
       {
@@ -477,7 +512,10 @@ export const PROJECTS_DATA = {
       {
         title: "Reflections",
         text: "This project redefined how I approach user experience. It pushed me past pure utility to focus on creating a deep emotional impact. Crafting a system that evokes genuine pride and reflection taught me how to use data storytelling to give users a meaningful sense of self-recognition.",
-        // image: "/assets/images/myjourney-reflections.jpg",
+        images: [
+          "/projects_images/MyJourneyAtTech/style2.png",
+          "/projects_images/MyJourneyAtTech/style11.png"
+        ],
         imagePosition: "left"
       }
     ]
@@ -488,7 +526,9 @@ export const PROJECTS_DATA = {
     category: "uxui",
     role: "Data Visualization & Interface Developer",
     techStack: ["Tableau", "GitHub Pages"],
-    heroImage: "/assets/images/happiness-hero.jpg",
+    // heroImage: "/projects_images/HappinessProject/The Happiness Project - Tanvi Shanbhag (1080p).mp4",
+    heroVideo: "/projects_images/HappinessProject/The Happiness Project - Tanvi Shanbhag (1080p).mp4",
+    // cardImage: "/projects_images/HappinessProject/The Happiness Project - Tanvi Shanbhag (1080p).mp4",
     quickPitch: "An open-access dashboard portal mapping the distinct correlations between global happiness report metrics and localized human lifestyle habits.",
     
     sections: [
@@ -536,7 +576,7 @@ export const PROJECTS_DATA = {
     category: "uxui", // Map to uxui context under Research Foundations category boundary
     role: "Co-Design Workshop Facilitator & Researcher",
     techStack: ["Participatory Design Frameworks"],
-    heroImage: "/assets/images/learnbyplay-hero.jpg",
+    heroImage: "/projects_images/LearnByPlay/lbp_logo.png",
     quickPitch: "A year-long educational co-design research initiative mapping intrinsic game design mechanics against structural learning objectives with middle school cohorts.",
     
     sections: [
@@ -555,13 +595,21 @@ export const PROJECTS_DATA = {
       {
         title: "Methodology & Data Collection",
         text: "The research team facilitated weekly 2-hour co-design workshops with middle and elementary school students waiting for parental pickup. Data collection used a mixed-methods approach: qualitative observation during design sessions, structural playtesting feedback forms, and active tracking of student misconceptions during gameplay. These weekly sessions allowed us to catch usability issues and conceptual misunderstandings immediately.",
-        // image: "/assets/images/learnbyplay-methodology.jpg",
+        images: [
+          "/projects_images/LearnByPlay/7pays.png",
+          "/public/projects_images/LearnByPlay/historyCubes.png"
+        ],
+        layout: "vertical",
         imagePosition: "right"
       },
       {
         title: "Key Findings & Contributions",
         text: "Initial student-led concepts often skewed heavily toward pure entertainment, viewing educational elements as boring roadblocks. To solve this, we negotiated a structured co-design boundary: students maintained complete creative freedom over the core gameplay loops, while our research team guided the integration of the educational content. This resulted in 5 highly successful game adaptations, including:\n• The Election Bluff Game: A social deduction and bluffing game where players deploy special character abilities and run for office, powered by answering school trivia questions.\n• History Story Cubes: A generative storytelling game where players roll custom dice to determine a historical era, grammatical tense, and character archetype, collaborating to build or draw a shared story under time constraints.",
-        // image: "/assets/images/learnbyplay-findings.jpg",
+        images: [
+          "/projects_images/LearnByPlay/loupGarou.png",
+          "/projects_images/LearnByPlay/qui_etait_ce.jpg"
+        ],
+        layout: "vertical",
         imagePosition: "left"
       },
       {
@@ -573,7 +621,7 @@ export const PROJECTS_DATA = {
       {
         title: "Reflections",
         text: "Working with youth for an entire year was incredibly rewarding, but it highlighted the challenges of participatory design. It taught me the importance of setting clear design boundaries. Without firm, pre-established guardrails, it is easy to get carried away by what your users are excited about and accidentally lose sight of your core educational goals.",
-        // image: "/assets/images/learnbyplay-reflections.jpg",
+        image: "/projects_images/LearnByPlay/storycubes2.jpg",
         imagePosition: "left"
       }
     ]

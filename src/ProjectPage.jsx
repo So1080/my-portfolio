@@ -156,13 +156,13 @@ export default function ProjectPage({ projects }) {
                 muted 
                 playsInline
                 controls
-                style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', borderRadius: '6px' }}
+                style={{ width: '100%', height: 'auto', maxHeight: '480px', objectFit: 'contain', borderRadius: '6px' }}
               />
             ) : (
               <img 
                 src={heroMediaSource} 
                 alt={project.title} 
-                style={{ width: '100%', maxHeight: '420px', objectFit: 'cover', borderRadius: '6px' }}
+                style={{ width: '100%', height: 'auto', maxHeight: '480px', objectFit: 'contain', borderRadius: '6px' }}
               />
             )}
           </div>
@@ -171,15 +171,18 @@ export default function ProjectPage({ projects }) {
 
       {/* Pitch Summary Paragraph */}
       <section style={{ maxWidth: '800px', margin: '0 auto 4rem auto', textAlign: 'left' }}>
-        <p style={{ 
+        <div style={{ 
           fontSize: '1.3rem', 
           lineHeight: '1.6', 
           color: '#2D2D2D',
           fontFamily: 'system-ui, -apple-system, "Inter", sans-serif',
-          textAlign: 'left'
-        }}>
-          {project.quickPitch}
-        </p>
+          textAlign: 'left',
+          whiteSpace: 'pre-line'
+        }}
+        dangerouslySetInnerHTML={{ __html: project.quickPitch }}
+        />
+          {/* {project.quickPitch} */}
+        {/* </p> */}
       </section>
 
       {/* Content Section Blocks */}
@@ -221,7 +224,7 @@ export default function ProjectPage({ projects }) {
                 }}>
                   {section.title}
                 </h2>
-                <p style={{ 
+                <div style={{ 
                   fontSize: '1.1rem', 
                   lineHeight: '1.6', 
                   color: '#333333',
@@ -229,9 +232,11 @@ export default function ProjectPage({ projects }) {
                   fontFamily: 'system-ui, -apple-system, "Inter", sans-serif',
                   whiteSpace: 'pre-line', // Preserves bullet points / line breaks cleanly if present
                   textAlign: 'left'
-                }}>
-                  {section.text}
-                </p>
+                }}
+                dangerouslySetInnerHTML={{ __html: section.text }}
+                />
+                  {/* {section.text} */}
+                {/* </div> */}
               </div>
 
               {/* Media Gallery Column (Renders only if media exists) */}
@@ -247,6 +252,15 @@ export default function ProjectPage({ projects }) {
                   {mediaList.map((src, imgIdx) => {
                     const isVideo = typeof src === 'string' && src.match(/\.(mp4|webm|ogg)$/i);
 
+                    const style = {
+                      width: '100%',
+                      height: 'auto',
+                      maxHeight: isHorizontal ? '260px' : '360px',
+                      objectFit: 'contain',
+                      borderRadius: '8px',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+                    };
+
                     return isVideo ? (
                       <video
                         key={imgIdx}
@@ -256,26 +270,29 @@ export default function ProjectPage({ projects }) {
                         muted
                         playsInline
                         controls
-                        style={{
-                          width: '100%',
-                          maxHeight: isHorizontal ? '220px' : '260px',
-                          objectFit: 'cover',
-                          borderRadius: '8px',
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
-                        }}
+                        style={style}
+                        // style={{
+                        //   width: '100%',
+                        //   height: 'auto',
+                        //   maxHeight: isHorizontal ? '260px' : '360px',
+                        //   objectFit: 'contain',
+                        //   borderRadius: '8px',
+                        //   boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+                        // }}
                       />
                     ) : (
                       <img 
                         key={imgIdx}
                         src={src} 
-                        alt={`${section.title} media ${imgIdx + 1}`} 
-                        style={{ 
-                          width: '100%', 
-                          maxHeight: isHorizontal ? '220px' : '260px',
-                          objectFit: 'cover', 
-                          borderRadius: '8px',
-                          boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
-                        }}
+                        alt={`${section.title} media ${imgIdx + 1}`}
+                        style={style}
+                        // style={{ 
+                        //   width: '100%', 
+                        //   maxHeight: isHorizontal ? '220px' : '260px',
+                        //   objectFit: 'cover', 
+                        //   borderRadius: '8px',
+                        //   boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+                        // }}
                       />
                     );
                   })}
