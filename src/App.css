@@ -166,7 +166,8 @@ canvas {
   /* font-family: 'Caveat Brush', cursive; */
   /* font-family: 'Patrick Hand', sans-serif; */
   /* font-family: 'Patrick Hand', cursive; */
-  font-family: 'Darumadrop One', sans-serif;
+  /* font-family: 'Darumadrop One', sans-serif; */
+  font-family: 'Caveat Brush', cursive, sans-serif;
   font-size: 5vw;
   color: #000000; /* Sharp black matching the illustration style */
   font-weight: 800;
@@ -454,7 +455,11 @@ canvas {
   transform: translateX(-50%);
   
   /* Safe System Font Stack: Crisp, modern, and highly legible across all screens */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; */
+  /* font-family: 'Caveat Brush', cursive; */
+  /* font-family: 'Patrick Hand', sans-serif; */
+  /* font-family: 'Patrick Hand', cursive; */
+  font-family: 'Darumadrop One', sans-serif;
   
   font-size: 1.1vw; /* Keeps the text scaling exactly alongside the asset frame proportions */
   font-weight: 700;
@@ -517,8 +522,13 @@ canvas {
   width: 80%;        /* Keeps text safely away from your drawn borders */
   
   color: #000000;
-  font-family: system-ui, sans-serif;
-  font-size: 1.2vw;
+  /* font-family: system-ui, sans-serif; */
+  /* font-family: 'Patrick Hand', cursive, sans-serif; */
+  /* font-family: 'Caveat Brush', cursive; */
+  /* font-family: 'Patrick Hand', sans-serif; */
+  /* font-family: 'Patrick Hand', cursive; */
+  font-family: 'Darumadrop One', sans-serif;
+  font-size: 1.3vw;
   font-weight: 600;
   text-align: center;
   line-height: 1.2;

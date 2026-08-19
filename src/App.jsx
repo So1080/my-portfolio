@@ -6,6 +6,8 @@ import CategoryPage from './CategoryPage';
 import ProjectPage from './ProjectPage';
 import { PROJECTS_DATA } from './projects';
 
+
+
 // 1. Cleaned up Imports (Renamed SVG to prevent naming collision with the component)
 import gamesPortalImg from './assets/Controller_and_frame.PNG';
 import accessPortalImg from './assets/Rock_and_frame.PNG';
@@ -42,14 +44,14 @@ const PORTALS = [
     path: '/category/games' 
   },
   { 
-    id: 'design', 
+    id: 'uxui', 
     label: 'UX & UI', 
     img: designPortalImg, 
     x: '84.3%', 
     y: '64.1%', 
     width: '13vw',
     textBottom: '5%',
-    path: '/category/design' 
+    path: '/category/uxui' 
   },
 ];
 
@@ -94,7 +96,7 @@ function App() {
         <button className="nav-link" onClick={() => navigate('/')}>Home</button>
         <button className="nav-link" onClick={() => navigate('/category/accessibility')}>Accessibility</button>
         <button className="nav-link" onClick={() => navigate('/category/games')}>Games</button>
-        <button className="nav-link" onClick={() => navigate('/category/design')}>UX & UI</button>
+        <button className="nav-link" onClick={() => navigate('/category/uxui')}>UX & UI</button>
       </nav>
 
       <Routes>
@@ -141,6 +143,26 @@ function App() {
         <Route path="/category/:categoryId" element={<CategoryPage projects={PROJECTS_DATA} />} />
         <Route path="/project/:projectId" element={<ProjectPage projects={PROJECTS_DATA} />} />
       </Routes>
+
+      <motion.div 
+        style={{
+          position: 'absolute',
+          bottom: '1.5rem',
+          right: '1.5rem',
+          fontSize: '0.85rem',
+          color: '#ffffff', // White text...
+          textShadow: '0px 1px 3px rgba(0, 0, 0, 0.6)', // ...with a soft dark outline for absolute readability
+          fontFamily: '"Patrick Hand", cursive, sans-serif',
+          letterSpacing: '0.05em',
+          opacity: 0.75
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.75 }}
+        whileHover={{ opacity: 1 }}
+        transition={{ delay: 5.0, duration: 0.6 }}
+      >
+        Art: by me :)
+      </motion.div>
     </div>
     </>
   );
