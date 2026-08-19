@@ -396,7 +396,8 @@ canvas {
   position: relative;
   height: 100vh;
   width: 100%;
-  background-image: url('src/assets/background_v2.png'); /* Ensure this path is correct */
+  /* background-image: url('src/assets/background_v2.png'); */
+  background-image: url('/background_v2.png');
   /* background-position: bottom;
   background-repeat: repeat-x;
   background-size: contain; */
